@@ -1,3 +1,3 @@
 # TestSystem
-Lab TRPZ project
+Lab TRPZ project.
 The best test system
