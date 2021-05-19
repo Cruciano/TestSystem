@@ -1,0 +1,20 @@
+﻿@model BLL.DTO.TestDto 
+
+<h2>New test for @ViewBag.Theme.Title</h2>
+<form method="post" asp-controller="Test" asp-action="Create">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div>
+        <input asp-for="ThemeId" type="hidden" value="@ViewBag.Theme.Id" />
+        <input asp-for="ThemeTitle" type="hidden" value="@ViewBag.Theme.Title" />
+    </div>
+    <div>
+        <label asp-for="Title"></label><br />
+        <input asp-for="Title" />
+        <span asp-validation-for="Title"></span>
+    </div>
+    <div>
+        <input type="submit" value="Create" />
+    </div>
+</form>
+
+<a asp-controller="Test" asp-action="Index" asp-route-themeId="@ViewBag.Theme.Id">Back</a>

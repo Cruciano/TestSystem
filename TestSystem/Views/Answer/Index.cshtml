@@ -1,0 +1,42 @@
+﻿@model ICollection<BLL.DTO.AnswerDto>
+
+<h2>Answer from @ViewBag.Question.TaskText</h2>
+
+<a asp-controller="Answer" asp-action="Create" asp-route-questionId="@ViewBag.Question.Id">Add new answer</a>
+<table>
+    <thead>
+        <tr>
+            <th>
+                Answer
+            </th>
+            <th>
+                Correct
+            </th>
+            <th>
+                Actions
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Text
+                </td>
+                <td>
+                    @item.IsCorrect
+                </td>
+                <td>
+                    <a asp-controller="Answer" asp-action="Edit" asp-route-id="@item.Id" asp-route-questionId="@ViewBag.Question.Id">Edit</a>
+                </td>
+                <td>
+                    <a asp-controller="Answer" asp-action="Delete" asp-route-id="@item.Id" asp-route-questionId="@ViewBag.Question.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-controller="Question" asp-action="Index" asp-route-testId="@ViewBag.Question.TestId">Back</a>

@@ -1,0 +1,40 @@
+﻿@model ICollection<BLL.DTO.ThemeDto>
+
+<h2>Themes</h2>
+
+<a asp-controller="Theme" asp-action="Create">Add new theme</a>
+<table>
+    <thead>
+        <tr>
+            <th>
+                Theme
+            </th>
+            <th>
+                Actions
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @item.Title
+            </td>
+            <td>
+                <a asp-controller="Test" asp-action="Index" asp-route-themeId="@item.Id">Tests</a>
+            </td>
+            <td>
+                <a asp-controller="Theme" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+            </td>
+            <td>
+                <a asp-controller="Theme" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+    </table>
+
+<a asp-controller="Home" asp-action="Index">Back</a>

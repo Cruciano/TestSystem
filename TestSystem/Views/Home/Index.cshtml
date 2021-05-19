@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@if (User.Identity.IsAuthenticated)
+{
+    <p>@User.Identity.Name</p>
+
+    @if (User.IsInRole("Administrator"))
+    {
+        <a asp-controller="Theme" asp-action="Index">Themes</a>
+    }
+    else if (User.IsInRole("User"))
+    {
+        <p>You are User</p>
+    }
+
+    <form method="post" asp-controller="Account" asp-action="Logout">
+        <input type="submit" value="Log out" />
+    </form>
+}
+else
+{
+    <a asp-controller="Account" asp-action="Login">Log in</a><br />
+    <a asp-controller="Account" asp-action="Register">Register</a>
+}

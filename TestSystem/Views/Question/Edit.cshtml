@@ -1,0 +1,23 @@
+﻿@model BLL.DTO.QuestionDto
+
+<h2>Edit question for @ViewBag.Test.Title</h2>
+<form method="post" asp-controller="Question" asp-action="Edit">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div>
+        <input asp-for="TestId" type="hidden" value="@ViewBag.Test.Id" />
+        <input asp-for="TestTitle" type="hidden" value="@ViewBag.Test.Title" />
+    </div>
+    <div>
+        <label asp-for="TaskText"></label><br />
+        <input asp-for="TaskText" />
+        <span asp-validation-for="TaskText"></span>
+        <label asp-for="Score"></label><br />
+        <input asp-for="Score" />
+        <span asp-validation-for="Score"></span>
+    </div>
+    <div>
+        <input type="submit" value="Edit" />
+    </div>
+</form>
+
+<a asp-controller="Question" asp-action="Index" asp-route-testId="@ViewBag.Test.Id">Back</a>

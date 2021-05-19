@@ -1,0 +1,40 @@
+﻿@model ICollection<BLL.DTO.TestDto>
+
+<h2>Tests from @ViewBag.Theme.Title</h2>
+
+<a asp-controller="Test" asp-action="Create" asp-route-themeId="@ViewBag.Theme.Id">Add new test</a>
+<table>
+    <thead>
+        <tr>
+            <th>
+                Test
+            </th>
+            <th>
+                Actions
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Title
+                </td>
+                <td>
+                    <a asp-controller="Question" asp-action="Index" asp-route-testId="@item.Id">Questions</a>
+                </td>
+                <td>
+                    <a asp-controller="Test" asp-action="Edit" asp-route-id="@item.Id" asp-route-themeId="@ViewBag.Theme.Id">Edit</a>
+                </td>
+                <td>
+                    <a asp-controller="Test" asp-action="Delete" asp-route-id="@item.Id" asp-route-themeId="@ViewBag.Theme.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-controller="Theme" asp-action="Index">Back</a>

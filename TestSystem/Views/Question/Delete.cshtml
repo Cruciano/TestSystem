@@ -1,0 +1,24 @@
+﻿@model BLL.DTO.QuestionDto
+
+<h1>Delete question</h1>
+<dl>
+    <dt>
+        Title
+    </dt>
+    <dd>
+        @Model.TaskText
+    </dd>
+    <dt>
+        Score
+    </dt>
+    <dd>
+        @Model.Score
+    </dd>
+</dl>
+
+<form  method="post" asp-action="DeleteVerified">
+    <input type="hidden" asp-for="Id" />
+    <input type="submit" value="Delete" />
+</form>
+
+<a asp-controller="Test" asp-action="Index" asp-route-themeId="@ViewBag.Test.ThemeId">Back</a>
