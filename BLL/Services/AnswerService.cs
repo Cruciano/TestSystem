@@ -22,7 +22,7 @@ namespace BLL.Services
         public async Task<ICollection<AnswerDto>> GetAllOfQuestionByIdAsync(int id)
         {
             List<AnswerDto> answers = new();
-            IEnumerable<Answer> answerEntities = await _unitOfWork.AnswerRepository.GetAllAsync();
+            IEnumerable<Answer> answerEntities = await _unitOfWork.AnswerRepository.GetByConditionAsync(answer => answer.QuestionId == id);
 
             foreach (var entity in answerEntities)
             {

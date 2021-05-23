@@ -12,7 +12,7 @@ namespace BLL.Mappers
                 Id = entity.Id,
                 Title = entity.Title,
                 ThemeId = entity.ThemeId,
-                ThemeTitle = entity.Theme.Title
+                ThemeTitle = entity.Theme?.Title
             };
         }
 

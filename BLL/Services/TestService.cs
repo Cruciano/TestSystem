@@ -21,28 +21,28 @@ namespace BLL.Services
 
         public async Task<ICollection<TestDto>> GetAllOfThemeByIdAsync(int id)
         {
-            List<TestDto> tests = new();
-            IEnumerable<Test> testEntities = await _unitOfWork.TestRepository
-                .GetByConditionAsync(test => test.ThemeId == id);
+             List<TestDto> tests = new();
+             IEnumerable<Test> testEntities = await _unitOfWork.TestRepository
+                 .GetByConditionAsync(test => test.ThemeId == id);
 
-            foreach(var entity in testEntities)
-            {
-                tests.Add(entity.MapToDto());
-            }
+             foreach(var entity in testEntities)
+             {
+                 tests.Add(entity.MapToDto());
+             }
 
-            foreach (var test in tests)
-            {
-                List<QuestionDto> questions = new();
-                IEnumerable<Question> questionEntities = await _unitOfWork.QuestionRepository
-                    .GetByConditionAsync(question => question.Id == test.Id);
+             foreach (var test in tests)
+             {
+                 List<QuestionDto> questions = new();
+                 IEnumerable<Question> questionEntities = await _unitOfWork.QuestionRepository
+                     .GetByConditionAsync(question => question.Id == test.Id);
 
-                foreach (var entity in questionEntities)
-                {
-                    questions.Add(entity.MapToDto());
-                }
+                 foreach (var entity in questionEntities)
+                 {
+                     questions.Add(entity.MapToDto());
+                 }
 
-                test.Questions = questions;
-            }
+                 test.Questions = questions;
+             }
 
             return tests;
         }

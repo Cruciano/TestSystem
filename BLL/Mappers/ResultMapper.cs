@@ -14,7 +14,7 @@ namespace BLL.Mappers
                 Score = entity.Score,
                 DateTime = entity.DateTime,
                 TestTitle = entity.TestTitle,
-                UserName = entity.user.FirstName,
+                UserName = entity.user?.FirstName,
                 UserId = entity.UserId,
                 TestId = entity.TestId
             };

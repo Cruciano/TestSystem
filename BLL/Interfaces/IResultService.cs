@@ -8,6 +8,6 @@ namespace BLL.Interfaces
     public interface IResultService
     {
         Task<ICollection<ResultDto>> GetAllAsync();
-        Task<ICollection<ResultDto>> GetAllByTestIdAsync(int testId, string userName);
+        Task<ICollection<ResultDto>> GetAllByTestIdAndUserAsync(int testId, string userName);
     }
 }

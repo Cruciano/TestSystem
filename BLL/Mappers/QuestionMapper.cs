@@ -13,7 +13,7 @@ namespace BLL.Mappers
                 TaskText = entity.TaskText,
                 Score = entity.Score,
                 TestId = entity.TestId,
-                TestTitle = entity.Test.Title
+                TestTitle = entity.Test?.Title
             };
         }
 

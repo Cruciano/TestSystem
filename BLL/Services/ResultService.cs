@@ -31,7 +31,7 @@ namespace BLL.Services
             return results;
         }
 
-        public async Task<ICollection<ResultDto>> GetAllByTestIdAsync(int testId, string userName)
+        public async Task<ICollection<ResultDto>> GetAllByTestIdAndUserAsync(int testId, string userName)
         {
             List<ResultDto> results = new();
 

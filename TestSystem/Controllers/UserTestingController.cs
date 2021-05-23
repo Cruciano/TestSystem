@@ -55,7 +55,7 @@ namespace TestSystem.Controllers
         public async Task<IActionResult> TestResults(int testId)
         {
             User user = await _userManager.GetUserAsync(HttpContext.User);
-            return View(await _resultService.GetAllByTestIdAsync(testId, user.FirstName));
+            return View(await _resultService.GetAllByTestIdAndUserAsync(testId, user.FirstName));
         }
     }
 }

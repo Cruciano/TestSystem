@@ -4,13 +4,13 @@ namespace DAL.Entities
 {
     public class Result
     {
-        public int Id;
-        public int Score;
-        public DateTime DateTime;
-        public string TestTitle;
+        public int Id { get; set; }
+        public int Score { get; set; }
+        public DateTime DateTime { get; set; }
+        public string TestTitle { get; set; }
 
-        public User user;
-        public int UserId;
-        public int TestId;
+        public User user { get; set; }
+        public int UserId { get; set; }
+        public int TestId { get; set; }
     }
 }

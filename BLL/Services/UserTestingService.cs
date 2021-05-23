@@ -85,12 +85,14 @@ namespace BLL.Services
 
         public async Task CommitTest(TestDto test, List<List<bool>> answers, User user)
         {
-            Result result = new();
-            result.user = user;
-            result.UserId = user.Id;
-            result.DateTime = DateTime.Now;
-            result.TestTitle = test.Title;
-            result.TestId = test.Id;
+            ResultDto result = new()
+            {
+                UserName = user.FirstName,
+                UserId = user.Id,
+                DateTime = DateTime.Now,
+                TestTitle = test.Title,
+                TestId = test.Id
+            };
 
             int totalScore = 0;
 
@@ -113,7 +115,7 @@ namespace BLL.Services
             }
 
             result.Score = totalScore;
-            await _unitOfWork.ResultRepository.CreateAsync(result);
+            await _unitOfWork.ResultRepository.CreateAsync(result.MapToEntity());
             await _unitOfWork.SaveAsync();
         }
 
