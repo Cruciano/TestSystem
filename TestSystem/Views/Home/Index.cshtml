@@ -9,10 +9,12 @@
     @if (User.IsInRole("Administrator"))
     {
         <a asp-controller="Theme" asp-action="Index">Themes</a>
+        <br />
+        <a asp-controller="Result" asp-action="Index">Results</a>
     }
     else if (User.IsInRole("User"))
     {
-        <p>You are User</p>
+        <a asp-controller="UserTesting" asp-action="Index">Available tests</a>
     }
 
     <form method="post" asp-controller="Account" asp-action="Logout">
@@ -21,6 +23,7 @@
 }
 else
 {
-    <a asp-controller="Account" asp-action="Login">Log in</a><br />
+    <a asp-controller="Account" asp-action="Login">Log in</a>
+    <br />
     <a asp-controller="Account" asp-action="Register">Register</a>
 }

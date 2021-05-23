@@ -11,6 +11,7 @@ namespace DAL.Context
         public DbSet<Theme> Tests { get; set; }
         public DbSet<Theme> Questions { get; set; }
         public DbSet<Theme> Answers { get; set; }
+        public DbSet<Result> Results { get; set; }
 
         public AppDbContext(DbContextOptions<AppDbContext> options)
             : base(options)

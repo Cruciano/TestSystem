@@ -1,0 +1,33 @@
+﻿@model List<List<bool>>
+
+<h2>Test</h2>
+<form method="post" asp-controller="UserTesting" asp-action="PassTest">
+    <div>
+        <input name="test.Id" type="hidden" value="@ViewBag.test.Id" />
+        <input name="test.Title" type="hidden" value="@ViewBag.test.Title" />
+        <input name="test.Questions" type="hidden" value="@ViewBag.test.Questions" />
+        <input name="test.ThemeId" type="hidden" value="@ViewBag.test.ThemeId" />
+        <input name="test.ThemeTitle" type="hidden" value="@ViewBag.test.ThemeTitle" />
+    </div>
+
+    <div>
+        <div class="questions">
+
+            @for (int i = 0; i < @ViewBag.test.Questions.Count; i++)
+            {
+
+                <p>@ViewBag.test.Questions.ElementAt(i).TaskText</p><br />
+
+                @for (int j = 0; j < @ViewBag.test.Questions.ElementAt(i).Answers.Count; j++)
+                {
+                    <input type="checkbox" name="@Model[i][j]" value="true" />
+                    @ViewBag.test.Questions.ElementAt(i).Answers.ElementAt(j).Text <br />
+                }
+            }
+        </div>
+
+    </div>
+    <div>
+        <input type="submit" value="Pass Test" />
+    </div>
+</form>

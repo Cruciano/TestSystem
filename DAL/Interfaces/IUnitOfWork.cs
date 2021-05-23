@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using DAL.Entities;
 
 namespace DAL.Interfaces
@@ -17,6 +14,8 @@ namespace DAL.Interfaces
         public IRepository<Question> QuestionRepository { get; }
 
         public IRepository<Answer> AnswerRepository { get; }
+
+        public IRepository<Result> ResultRepository { get; }
 
         public Task SaveAsync();
     }

@@ -1,0 +1,42 @@
+﻿@model ICollection<BLL.DTO.TestDto>
+
+<h2>All Available tests</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>
+                Test
+            </th>
+            <th>
+                Theme name
+            </th>
+            <th>
+                Actions
+            </th>
+            <th>                
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Title
+                </td>
+                <td>
+                    @item.ThemeTitle
+                </td>
+                <td>
+                    <a asp-controller="UserTesting" asp-action="PassTest" asp-route-testId="@item.Id">Results</a>
+                </td>
+                <td>
+                    <a asp-controller="UserTesting" asp-action="PassTest" asp-route-testId="@item.Id">Pass Test</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-controller="Home" asp-action="Index">Back</a>

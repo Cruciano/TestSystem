@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using BLL.Interfaces;
 using BLL.Mappers;
@@ -60,16 +58,16 @@ namespace BLL.Services
 
             QuestionDto question = questionEntity.MapToDto();
 
-            List<AnswerDto> questions = new();
+            List<AnswerDto> answers = new();
             IEnumerable<Answer> answerEntities = await _unitOfWork.AnswerRepository
                 .GetByConditionAsync(answer => answer.QuestionId == questionEntity.Id);
 
             foreach (var entity in answerEntities)
             {
-                questions.Add(entity.MapToDto());
+                answers.Add(entity.MapToDto());
             }
 
-            question.Answers = questions;
+            question.Answers = answers;
             return question;
         }
 

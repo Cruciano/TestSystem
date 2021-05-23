@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using DAL.Context;
 using DAL.Entities;
 using DAL.Interfaces;
@@ -27,6 +24,9 @@ namespace DAL.UnitOfWork
 
         private IRepository<Answer> _answerRepository;
         public IRepository<Answer> AnswerRepository => _answerRepository ??= new Repository<Answer>(_context);
+
+        private IRepository<Result> _resultRepository;
+        public IRepository<Result> ResultRepository => _resultRepository ??= new Repository<Result>(_context);
 
         public UnitOfWork(AppDbContext context)
         {

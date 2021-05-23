@@ -13,6 +13,8 @@ namespace BLL.Initiator
             services.AddTransient<ITestService, TestService>();
             services.AddTransient<IQuestionService, QuestionService>();
             services.AddTransient<IAnswerService, AnswerService>();
+            services.AddTransient<IResultService, ResultService>();
+            services.AddTransient<IUserTestingService, UserTestingService>();
 
             return services;
         }
