@@ -1,6 +1,6 @@
 ﻿@model BLL.DTO.AnswerDto
 
-<h2>Edit question for @ViewBag.Question.Title</h2>
+<h2>Edit answer</h2>
 <form method="post" asp-controller="Answee" asp-action="Edit">
     <div asp-validation-summary="ModelOnly"></div>
     <div>
@@ -19,4 +19,4 @@
     </div>
 </form>
 
-<a asp-controller="Answer" asp-action="Index" asp-route-testId="@ViewBag.Question.Id">Back</a>
+<a asp-controller="Answer" asp-action="Index" asp-route-questionId="@ViewBag.Question.Id">Back</a>

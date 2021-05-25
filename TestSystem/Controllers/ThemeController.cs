@@ -9,7 +9,7 @@ using BLL.DTO;
 
 namespace TestSystem.Controllers
 {
-    [Authorize(Roles = "Administrator")]
+   // [Authorize(Roles = "Administrator")]
     public class ThemeController : Controller
     {
         private IThemeService _themeService;
@@ -64,7 +64,7 @@ namespace TestSystem.Controllers
         [HttpPost]
         public async Task<IActionResult> DeleteVerified(int id)
         {
-            await _themeService.GetByIdAsync(id);
+            await _themeService.DeleteAsync(id);
             return RedirectToAction(nameof(Index));
         }
     }

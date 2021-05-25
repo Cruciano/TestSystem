@@ -12,7 +12,7 @@ using DAL.Entities;
 
 namespace TestSystem.Controllers
 {
-    [Authorize(Roles = "User")]
+   // [Authorize(Roles = "User")]
     public class UserTestingController : Controller
     {
         private UserManager<User> _userManager;
@@ -39,8 +39,19 @@ namespace TestSystem.Controllers
             TestDto test = await _userTestingService.GetByIdAsync(testId);
             test = _userTestingService.ShuffleTest(test);
 
+            List<List<bool>> model = new();
+
+            for(int i = 0; i < test.Questions.Count; i++)
+            {
+                model.Add(new List<bool>());
+                for(int j = 0; j < test.Questions.ElementAt(i).Answers.Count; j++)
+                {
+                    model[i].Add(false);
+                }
+            }
+
             ViewBag.test = test;
-            return View();
+            return View(model);
         }
 
         [HttpPost]
@@ -52,7 +63,8 @@ namespace TestSystem.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public async Task<IActionResult> TestResults(int testId)
+
+        public async Task<IActionResult> Results(int testId)
         {
             User user = await _userManager.GetUserAsync(HttpContext.User);
             return View(await _resultService.GetAllByTestIdAndUserAsync(testId, user.FirstName));

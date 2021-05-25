@@ -9,7 +9,7 @@ using BLL.DTO;
 
 namespace TestSystem.Controllers
 {
-    [Authorize(Roles = "Administrator")]
+    //[Authorize(Roles = "Administrator")]
     public class AnswerController : Controller
     {
         private IAnswerService _answerService;
@@ -76,7 +76,7 @@ namespace TestSystem.Controllers
         {
             AnswerDto answerDto = await _answerService.GetByIdAsync(id);
             await _answerService.DeleteAsync(id);
-            return RedirectToAction(nameof(Index), new { testId = answerDto.QuestionId });
+            return RedirectToAction(nameof(Index), new { questionId = answerDto.QuestionId });
         }
     }
 }

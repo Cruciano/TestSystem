@@ -9,7 +9,7 @@ using BLL.DTO;
 
 namespace TestSystem.Controllers
 {
-    [Authorize(Roles = "Administrator")]
+    //[Authorize(Roles = "Administrator")]
     public class TestController : Controller
     {
         private ITestService _testService;

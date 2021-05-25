@@ -16,12 +16,12 @@
             @for (int i = 0; i < @ViewBag.test.Questions.Count; i++)
             {
 
-                <p>@ViewBag.test.Questions.ElementAt(i).TaskText</p><br />
+                <p>@ViewBag.test.Questions[i].TaskText</p><br />
 
-                @for (int j = 0; j < @ViewBag.test.Questions.ElementAt(i).Answers.Count; j++)
+                @for (int j = 0; j < @ViewBag.test.Questions[i].Answers.Count; j++)
                 {
-                    <input type="checkbox" name="@Model[i][j]" value="true" />
-                    @ViewBag.test.Questions.ElementAt(i).Answers.ElementAt(j).Text <br />
+                    <input type="checkbox" name="@Model[i][j]" value="false" />
+                    @ViewBag.test.Questions[i].Answers[j].Text <br />
                 }
             }
         </div>

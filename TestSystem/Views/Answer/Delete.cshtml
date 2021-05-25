@@ -1,6 +1,6 @@
 ﻿@model BLL.DTO.AnswerDto
 
-<h1>Delete question</h1>
+<h1>Delete answer</h1>
 <dl>
     <dt>
         Text
@@ -21,4 +21,4 @@
     <input type="submit" value="Delete" />
 </form>
 
-<a asp-controller="Answer" asp-action="Index" asp-route-testId="@ViewBag.Question.Id">Back</a>
+<a asp-controller="Answer" asp-action="Index" asp-route-questionId="@ViewBag.Question.Id">Back</a>
