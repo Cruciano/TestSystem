@@ -25,7 +25,10 @@ namespace BLL.Services
 
             foreach (var entity in resultEntities)
             {
-                results.Add(entity.MapToDto());
+                ResultDto result = entity.MapToDto();
+                User user = await _unitOfWork.UserRepository.ReadAsync(result.UserId);
+                result.UserName = user.FirstName;
+                results.Add(result);
             }
 
             return results;

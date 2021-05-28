@@ -4,26 +4,29 @@
 
 @if (User.Identity.IsAuthenticated)
 {
-    <p>@User.Identity.Name</p>
+    <p>Welcome @User.Identity.Name</p>
 
     @if (User.IsInRole("Administrator"))
     {
-        <a asp-controller="Theme" asp-action="Index">Themes</a>
-        <br />
-        <a asp-controller="Result" asp-action="Index">Results</a>
+        <div class="flex-line">
+            <a class="btn-light" asp-controller="Theme" asp-action="Index">Themes</a>
+            <a class="btn-light" asp-controller="Result" asp-action="Index">Results</a>
+        </div>
+        <hr />
     }
     else if (User.IsInRole("User"))
     {
-        <a asp-controller="UserTesting" asp-action="Index">Available tests</a>
+        <a class="btn-light" asp-controller="UserTesting" asp-action="Index">Available tests</a>
+        <hr />
     }
 
     <form method="post" asp-controller="Account" asp-action="Logout">
-        <input type="submit" value="Log out" />
+        <input class="btn-dark" type="submit" value="Log out" />
     </form>
 }
 else
 {
-    <a asp-controller="Account" asp-action="Login">Log in</a>
+    <a class="btn-dark" asp-controller="Account" asp-action="Login">Log in</a>
     <br />
-    <a asp-controller="Account" asp-action="Register">Register</a>
+    <a class="btn-light" asp-controller="Account" asp-action="Register">Register</a>
 }

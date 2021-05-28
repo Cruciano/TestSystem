@@ -2,7 +2,7 @@
 
 <h2>Tests from @ViewBag.Theme.Title</h2>
 
-<a asp-controller="Test" asp-action="Create" asp-route-themeId="@ViewBag.Theme.Id">Add new test</a>
+<a class="btn-light" asp-controller="Test" asp-action="Create" asp-route-themeId="@ViewBag.Theme.Id">Add new test</a>
 <table class="table">
     <thead>
         <tr>
@@ -37,4 +37,4 @@
     </tbody>
 </table>
 
-<a asp-controller="Theme" asp-action="Index">Back</a>
+<a class="btn-dark" asp-controller="Theme" asp-action="Index">Back</a>

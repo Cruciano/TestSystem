@@ -2,7 +2,7 @@
 
 <h2>Answer from @ViewBag.Question.TaskText</h2>
 
-<a asp-controller="Answer" asp-action="Create" asp-route-questionId="@ViewBag.Question.Id">Add new answer</a>
+<a class="btn-light" asp-controller="Answer" asp-action="Create" asp-route-questionId="@ViewBag.Question.Id">Add new answer</a>
 <table class="table">
     <thead>
         <tr>
@@ -39,4 +39,4 @@
     </tbody>
 </table>
 
-<a asp-controller="Question" asp-action="Index" asp-route-testId="@ViewBag.Question.Id">Back</a>
+<a class="btn-dark" asp-controller="Question" asp-action="Index" asp-route-testId="@ViewBag.Question.TestId">Back</a>

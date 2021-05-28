@@ -9,14 +9,13 @@
     <div>
         <label asp-for="Text"></label><br />
         <input asp-for="Text" />
-        <span asp-validation-for="Text"></span>
-        <label asp-for="IsCorrect"></label><br />
+        <span asp-validation-for="Text"></span><br />
+        <label asp-for="IsCorrect"></label>
         <input asp-for="IsCorrect" />
         <span asp-validation-for="IsCorrect"></span>
     </div>
-    <div>
-        <input type="submit" value="Edit" />
+    <div class="submit-wrapper flex-line">
+        <input class="btn-dark" type="submit" value="Edit" />
+        <a class="btn-light" asp-controller="Answer" asp-action="Index" asp-route-questionId="@ViewBag.Question.Id">Back</a>
     </div>
 </form>
-
-<a asp-controller="Answer" asp-action="Index" asp-route-questionId="@ViewBag.Question.Id">Back</a>

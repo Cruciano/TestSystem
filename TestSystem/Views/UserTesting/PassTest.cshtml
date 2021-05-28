@@ -16,18 +16,19 @@
             @for (int i = 0; i < @ViewBag.test.Questions.Count; i++)
             {
 
-                <p>@ViewBag.test.Questions[i].TaskText</p><br />
-
+                <p class="unselectable">@((i+1).ToString()).  @ViewBag.test.Questions[i].TaskText</p>
                 @for (int j = 0; j < @ViewBag.test.Questions[i].Answers.Count; j++)
                 {
-                    <input type="checkbox" name="@Model[i][j]" value="false" />
-                    @ViewBag.test.Questions[i].Answers[j].Text <br />
+                    <p> <label class="unselectable"><input type="checkbox" name="@Model[i][j]" value="false" />
+                        @ViewBag.test.Questions[i].Answers[j].Text</label> </p>
                 }
+                <hr />
             }
+
         </div>
 
     </div>
     <div>
-        <input type="submit" value="Pass Test" />
+        <input class="btn-dark" type="submit" value="Pass Test" />
     </div>
 </form>

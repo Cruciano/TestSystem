@@ -12,9 +12,8 @@
         <input asp-for="Title" />
         <span asp-validation-for="Title"></span>
     </div>
-    <div>
-        <input type="submit" value="Edit" />
+    <div class="submit-wrapper flex-line">
+        <input class="btn-dark" type="submit" value="Edit" />
+        <a class="btn-light" asp-controller="Test" asp-action="Index" asp-route-themeId="@ViewBag.Theme.Id">Back</a>
     </div>
 </form>
-
-<a asp-controller="Test" asp-action="Index" asp-route-themeId="@ViewBag.Theme.Id">Back</a>

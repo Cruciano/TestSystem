@@ -9,7 +9,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DAL.Initiator;
+using DAL.Context;
 using BLL.Initiator;
+using Microsoft.EntityFrameworkCore;
 
 namespace TestSystem
 {
@@ -25,8 +27,18 @@ namespace TestSystem
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
             services.InitBllServices();
-            services.InitDalServices(Configuration.GetConnectionString("DefaultConnection"));
+
+            if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production")
+            {
+                services.InitDalServices(Configuration.GetConnectionString("TestDbProd"));
+            }
+            else
+            {
+                services.InitDalServices(Configuration.GetConnectionString("DefaultConnection"));
+            }
+
             services.AddControllersWithViews();
         }
 

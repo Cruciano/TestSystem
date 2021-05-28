@@ -1,10 +1,35 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
-a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+.navbar-custom {
+    background-color: #ad1457;
+    color: white;
+}
+
+.flex-line {
+    display: flex;
+    flex-direction: row;
+}
+
+li {
+    list-style-type: none;
+    margin: 25px;
+    font-size: 150%;
+}
+
+.font-bold {
+    font-weight: bold;
+}
+
+.navbar-link {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.navbar-link:hover {
+    color: white;
+    text-decoration: underline;
 }
 
 /* Provide sufficient contrast against white background */
@@ -59,8 +84,9 @@ html {
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    background-color: #FDFDFD;
 }
 .footer {
   position: absolute;
@@ -68,6 +94,20 @@ body {
   width: 100%;
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
+}
+
+label {
+    cursor: pointer;
+}
+
+.unselectable {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+    -khtml-user-select: none; /* Konqueror */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                  not supported by any browser */
 }
 
 .table {
@@ -111,4 +151,51 @@ body {
 
 .table tbody tr td:last-child {
     border-radius: 0 8px 8px 0;
+}
+
+.btn-dark {
+    display: inline-block;
+    background-color: #e35183;
+    color: white;
+    padding: 10px;
+    margin: 0px 20px 20px 0px;
+    cursor: pointer;
+    text-decoration: none;
+    border: 2px solid #e35183;
+    border-radius: 10px;
+    transition: ease 0.2s;
+}
+
+.btn-dark:hover {
+    background-color: white;
+    color: #e35183;
+    text-decoration: none;
+    border: 2px solid #e35183;
+    transition: ease 0.2s;
+}
+
+.btn-light {
+    display: inline-block;
+    background-color: white;
+    color: #e35183;
+    text-decoration: none;
+    padding: 10px;
+    margin: 0px 20px 20px 0px;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 10px;
+    border: 2px solid #e35183;
+    transition: ease 0.2s;
+}
+
+.btn-light:hover {
+    background-color: #e35183;
+    color: white;
+    text-decoration: none;
+    border: 2px solid #e35183;
+    transition: ease 0.2s;
+}
+
+.submit-wrapper {
+    margin: 15px;
 }

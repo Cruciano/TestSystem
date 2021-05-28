@@ -15,9 +15,8 @@
         <input asp-for="Score" />
         <span asp-validation-for="Score"></span>
     </div>
-    <div>
-        <input type="submit" value="Edit" />
+    <div class="submit-wrapper flex-line">
+        <input class="btn-dark" type="submit" value="Edit" />
+        <a class="btn-light" asp-controller="Question" asp-action="Index" asp-route-testId="@ViewBag.Test.Id">Back</a>
     </div>
 </form>
-
-<a asp-controller="Question" asp-action="Index" asp-route-testId="@ViewBag.Test.Id">Back</a>
