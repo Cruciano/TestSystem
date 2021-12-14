@@ -9,7 +9,7 @@ namespace IntegrationTests.ControllerTest
     [TestFixture]
     class ThemeControllerTest
     {
-        private HttpClient _client;
+         private HttpClient _client;
 
         [SetUp]
         public void Setup()
